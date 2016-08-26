@@ -19,7 +19,7 @@ setup(
     author='kulinacs',
     author_email='nicklaus@kulinacs.com',
     license='MIT',
-    classifers=[
+    classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',
         'Intended Audience :: Developers',
