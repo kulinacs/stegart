@@ -75,7 +75,6 @@ def main():
     parser.add_argument('input_string', metavar='input', type=str,
                         help='The input data to render the image from')
     args = parser.parse_args()
-    print "Input String" + args.input_string
     generate_image(args.input_string, args.height, args.width, args.background,
                    args.shape, args.modifier, args.output_file)
 
