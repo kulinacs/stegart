@@ -4,7 +4,8 @@ import numpy as np
 import argparse
 
 
-def horizontal_line(canvas, hexdata, barheight):
+def _horizontal_line(canvas, hexdata, barheight):
+    """Renders a horizontal line representing the given data"""
     height, width = np.shape(canvas)[:2]
     bartop = height / 2 - barheight / 2
     barbottom = bartop + barheight
@@ -26,11 +27,12 @@ def horizontal_line(canvas, hexdata, barheight):
                      (blue, green, red), -1)
 
 shapes = {
-    'horizontal': horizontal_line,
+    'horizontal': _horizontal_line,
 }
 
 
-def parse_input(input_string):
+def __parse_input(input_string):
+    """Converts the given input to a hexstring"""
     try:
         int(input_string, 16)
         hexinput = input_string
@@ -45,7 +47,8 @@ def parse_input(input_string):
 
 def generate_image(input_string, height=512, width=512, background='FFFFFF',
                    shape='horizontal', modifier=25, output_file='stegart.png'):
-    hexdata = parse_input(input_string)
+    """Renders the image based on the given input"""
+    hexdata = __parse_input(input_string)
     input_string.replace('#', '')
     canvas = np.empty((height, width, 3))
     canvas[:][:] = (int(background[4:6], 16),
